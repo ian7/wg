@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date: MyString
+  person: MyString
+  name: MyString
+  shareholders: MyString
+
+two:
+  date: MyString
+  person: MyString
+  name: MyString
+  shareholders: MyString
