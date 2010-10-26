@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :person %><br />
-  <% Flatmate.all.each do |fl| %> 
+  <% User.all.each do |fl| %> 
      <%= f.radio_button :person, fl.name %>
      <%= fl.name %>  
    <% end %>
@@ -38,7 +38,7 @@
   <div class="field">
 
   <%= f.label :shareholders %><br />
-  <% Flatmate.all.each do |fl| %> 
+  <% User.all.each do |fl| %> 
      <%= f.check_box :shareholders, {:multiple => false, :checked=>@expense.shareholders.include?(fl.name)}, fl.name, nil %>
      <%= fl.name %>  
    <% end %>
