@@ -5,4 +5,8 @@ class Expense < ActiveRecord::Base
     shareholders.delete("")
     super
   end
+
+  def value_per_head
+    return value / shareholders.size
+  end  
 end

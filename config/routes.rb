@@ -1,5 +1,9 @@
 Wg1::Application.routes.draw do
 
+  get "reports/summaryasdfasd"
+
+  get "reports/summary"
+
   resources :flatmates
 
   match '/auth/:provider/callback' => 'authentications#create'

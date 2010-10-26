@@ -19,9 +19,12 @@
     <td><%= expense.person %></td>
     <td><%= expense.name %></td>
     
-    <td><% expense.shareholders[0..expense.shareholders.size-3].each do |fl| %>
+    <td>
+      <% if expense.shareholders.size > 1 %>
+        <% expense.shareholders[0..(expense.shareholders.size-2)].each do |fl| %>
           <%= fl %>,
         <% end %>
+      <% end %>
         
         <%  if expense.shareholders.last %>
            <%= expense.shareholders.last %> 

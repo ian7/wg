@@ -9,12 +9,13 @@
   </head>
   <body>
     <div id="header">
-      <%= link_to 'Expenses', expenses_url %>
+      <%= link_to 'Expenses', expenses_url %>,
+      <%= link_to 'Summary', :controller=>"reports", :action=>'summary' %>
       <br>
       <% if user_signed_in? %>
         You're logged in as:
         <%= link_to( current_user.name, :controller=>"authentications", :action=>"index") %>
-        <%= link_to('Logout', destroy_user_session_path) %>        
+        <%= link_to('LogOut', destroy_user_session_path) %>        
       <% else %>
         <%= link_to('Login', authentications_url )   %>  
       <% end %>

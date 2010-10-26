@@ -147,6 +147,25 @@ a {
 table {
   width: 100%;
 }
+
+table.small {
+  width: 70%;
+  background: #EEEEEE;
+}
+
+table.small td {
+  background: white;
+}
+
+th.total{
+  text-align: right;
+}
+
+.value{
+  text-align: right;
+  padding-right: 1em;
+}
+
 td {
 //  border: black;
 //  border-style: solid;

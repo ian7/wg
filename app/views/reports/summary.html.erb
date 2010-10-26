@@ -1,0 +1,44 @@
+<h1>Summaries</h1>
+
+Spendings:
+
+<table class="small">
+  <tr>
+    <th>Name</th>
+    <th>Spendings</th>
+    <th>Consumes</th>
+    <th>Difference</th>
+  </tr>
+  <% total_spendings = 0 %>
+  <% total_consumes = 0 %>
+
+  <% @spendings.each do |s| %>
+  <tr>
+    <td>
+    <%= s[:name] %>
+    </td>
+    
+    <td class="value">
+    <%= s[:spendings] %>
+    <% total_spendings = total_spendings + s[:spendings] %>
+    </td>
+
+    <td class="value">
+    <%= s[:consumes] %>
+    <% total_consumes = total_consumes + s[:consumes] %>
+    </td>
+    
+    <td class="value">
+    <%= s[:spendings] - s[:consumes] %>
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <th class="total">Total</th>
+    <th class="value"><%= total_spendings %> </th>
+    <th class="value"><%= total_consumes %> </th>
+    <th class="value"><%= total_spendings - total_consumes %>
+  </tr>
+</table>
+
+<%#= render 'table', :collection=>@spendings %>
