@@ -27,6 +27,15 @@ a {
   margin-top: 20px;
 }
 
+#header {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 3px 10px;
+  border: solid 1px black;
+  margin-top: 00px;
+}
+
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;

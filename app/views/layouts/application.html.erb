@@ -8,24 +8,21 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <div id="header">
+      <%= link_to 'Expenses', expenses_url %>
+      <br>
+      <% if user_signed_in? %>
+        You're logged in as:
+        <%= link_to( current_user.name, :controller=>"authentications", :action=>"index") %>
+        <%= link_to('Logout', destroy_user_session_path) %>        
+      <% else %>
+        <%= link_to('Login', authentications_url )   %>  
+      <% end %>
+    </div>
     <div id="container">
-  <% if user_signed_in? %>
-  <li>
-    You're logged in as:
-    <%= link_to( current_user.name, :controller=>"authentications", :action=>"index") %>
-    <%= link_to('Logout', destroy_user_session_path) %>        
-  </li>
-<% else %>
-  <li>
-    <%= link_to('Login', authentications_url )   %>  
-  </li>
-  <% end %>
-  
+ 
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
-
-
-
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
