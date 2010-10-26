@@ -1,0 +1,23 @@
+<h1>Listing flatmates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @flatmates.each do |flatmate| %>
+  <tr>
+    <td><%= flatmate.name %></td>
+    <td><%= link_to 'Show', flatmate %></td>
+    <td><%= link_to 'Edit', edit_flatmate_path(flatmate) %></td>
+    <td><%= link_to 'Destroy', flatmate, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Flatmate', new_flatmate_path %>

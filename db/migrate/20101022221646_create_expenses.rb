@@ -5,6 +5,8 @@ class CreateExpenses < ActiveRecord::Migration
       t.string :person
       t.string :name
       t.string :shareholders
+      t.string :value
+      t.string :currency
 
       t.timestamps
     end

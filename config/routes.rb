@@ -1,5 +1,7 @@
 Wg1::Application.routes.draw do
 
+  resources :flatmates
+
   match '/auth/:provider/callback' => 'authentications#create'
 
   resources :authentications

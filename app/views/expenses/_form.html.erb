@@ -17,16 +17,33 @@
   </div>
   <div class="field">
     <%= f.label :person %><br />
-    <%= f.text_field :person %>
+  <% Flatmate.all.each do |fl| %> 
+     <%= f.radio_button :person, fl.name %>
+     <%= fl.name %>  
+   <% end %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :shareholders %><br />
-    <%= f.text_field :shareholders %>
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
   </div>
+  <div class="field">
+    <%= f.label :currency %><br />
+    <%= f.text_field :currency %>
+  </div>
+  
+  <div class="field">
+
+  <%= f.label :shareholders %><br />
+  <% Flatmate.all.each do |fl| %> 
+     <%= f.check_box :shareholders, {:multiple => false, :checked=>@expense.shareholders.include?(fl.name)}, fl.name, nil %>
+     <%= fl.name %>  
+   <% end %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

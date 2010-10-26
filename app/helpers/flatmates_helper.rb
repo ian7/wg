@@ -1,0 +1,2 @@
+module FlatmatesHelper
+end

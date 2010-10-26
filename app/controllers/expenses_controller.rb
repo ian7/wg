@@ -28,7 +28,10 @@ class ExpensesController < ApplicationController
   # GET /expenses/new.xml
   def new
     @expense = Expense.new
-
+    @expense.date = DateTime.now
+    @expense.currency = "chf"
+    @expense.value = 0
+    @expense.shareholders = []
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @expense }
@@ -44,6 +47,7 @@ class ExpensesController < ApplicationController
   # POST /expenses.xml
   def create
     @expense = Expense.new(params[:expense])
+    
 
     respond_to do |format|
       if @expense.save

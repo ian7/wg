@@ -135,3 +135,10 @@ a {
   text-align: center;
   margin-bottom: 10px;
 }
+table {
+  width: 100%;
+}
+td {
+//  border: black;
+//  border-style: solid;
+}

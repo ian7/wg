@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024125518) do
+ActiveRecord::Schema.define(:version => 20101026111457) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -21,10 +21,18 @@ ActiveRecord::Schema.define(:version => 20101024125518) do
   end
 
   create_table "expenses", :force => true do |t|
-    t.string   "date"
+    t.datetime "date"
     t.string   "person"
     t.string   "name"
     t.string   "shareholders"
+    t.integer  "value"
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flatmates", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

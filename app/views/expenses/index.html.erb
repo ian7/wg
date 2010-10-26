@@ -6,6 +6,8 @@
     <th>Person</th>
     <th>Name</th>
     <th>Shareholders</th>
+    <th>Value</th>
+    <th>Currency</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,10 +15,22 @@
 
 <% @expenses.each do |expense| %>
   <tr>
-    <td><%= expense.date %></td>
+    <td><%= expense.date.strftime(fmt='%d.%m.%Y') %></td>
     <td><%= expense.person %></td>
     <td><%= expense.name %></td>
-    <td><%= expense.shareholders %></td>
+    
+    <td><% expense.shareholders[0..expense.shareholders.size-2].each do |fl| %>
+          <%= fl %>,
+        <% end %>
+        
+        <%  if expense.shareholders.last %>
+           <%= expense.shareholders.last %> 
+        <% end %>
+    </td>
+    <td><%= expense.value %></td>
+    <td><%= expense.currency %></td>
+
+    
     <td><%= link_to 'Show', expense %></td>
     <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
     <td><%= link_to 'Destroy', expense, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -27,3 +41,4 @@
 <br />
 
 <%= link_to 'New Expense', new_expense_path %>
+ 
