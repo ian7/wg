@@ -10,7 +10,7 @@
   <body>
     <div id="header">
       <%= link_to 'Expenses', expenses_url %>,
-      <%= link_to 'Summary', :controller=>"reports", :action=>'summary' %>
+      <%= link_to 'Summary', :controller=>"/reports", :action=>'summary' %>
       <br>
       <% if user_signed_in? %>
         You're logged in as:
