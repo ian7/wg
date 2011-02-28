@@ -25,7 +25,8 @@ class AuthenticationsController < ApplicationController
         user.apply_omniauth( omniauth )
         if user.save
           flash[:notice] = "Auth Success !"      
-          sign_in_and_redirect(user, authentication.user )
+          sign_in_and_redirect(user, nil )
+#          sign_in_and_redirect(user, omniauth['uid'] )
         else
           session[:omniauth] = omniauth.except('extra')
           redirect_to new_user_registration_url

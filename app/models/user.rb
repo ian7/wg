@@ -14,7 +14,17 @@ class User < ActiveRecord::Base
   
   
   def apply_omniauth( omniauth )
+  	# fill in e-mail if empty
     self.email = omniauth['user_info']['email'] if email.blank?
+    # if still empty, then fake it (openid ?)
+    self.email = 'invalid@email.openid.org' if email.blank?
+    
+    # fill in name    
+    self.name = omniauth['user_info']['name'] if name.blank?
+    
+    # if stil blank, then at least set uid as name
+    self.name = omniauth['uid'] if name.blank?
+    
     authentications.build(:provider=>omniauth['provider'], :uid=>omniauth['uid'])
   end
   
